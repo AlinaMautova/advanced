@@ -1,0 +1,31 @@
+{{ template "base" . }}
+{{ define "title" }}Create News{{ end }}
+{{ define "main" }}
+<head>
+    <link rel='stylesheet' href='/static/css/main.css'>
+    <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+</head>
+<h2>Create a News Item</h2>
+<!-- Your form and content specific to the createNews page go here -->
+<form action="/news/create" method="post" enctype="application/x-www-form-urlencoded">
+    <!-- Your form fields go here -->
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br>
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" required></textarea><br>
+
+    <label for="expires">Expires:</label>
+    <input type="text" id="expires" name="expires" required><br>
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        <option value="staff">Staff</option>
+        <option value="students">Students</option>
+        <option value="researches">Researches</option>
+        <option value="applicants">Applicants</option>
+    </select><br>
+
+    <button type="submit">Submit</button>
+</form>
+{{ end }}

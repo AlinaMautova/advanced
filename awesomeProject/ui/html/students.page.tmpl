@@ -1,0 +1,31 @@
+{{ template "base" . }}
+{{ define "title" }}Students{{ end }}
+{{ define "main" }}
+<head>
+    <link rel='stylesheet' href='/static/css/main.css'>
+    <link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+</head>
+
+{{if .NewsList}}
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Expires</th>
+        <th>ID</th>
+        <th>Content</th>
+        <th>Category</th>
+    </tr>
+    {{range .NewsList}}
+    <tr>
+        <td><a href='/news?id={{.Category}}'>{{.Title}}</a></td>
+        <td>{{.Expires}}</td>
+        <td>#{{.ID}}</td>
+        <td>{{.Content}}</td>
+        <td>{{.Category}}</td>
+    </tr>
+    {{end}}
+</table>
+{{else}}
+<p>There's nothing to see here... yet!</p>
+{{end}}
+{{end}}
